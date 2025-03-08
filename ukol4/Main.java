@@ -1,43 +1,4 @@
-
-interface PaymentMethod
-{
-    void processPayment(double amount);
-}
-
-class CreditCardPayment implements PaymentMethod
-{
-    public void processPayment(double amount)
-    {
-        System.out.println("using Credit Card" + amount);
-    }
-}
-
-class PayPalPayment implements PaymentMethod
-{
-    public void processPayment(double amount)
-    {
-        System.out.println("using PayPal" + amount);
-    }
-}
-
-class BankTransferPayment implements PaymentMethod
-{
-    public void processPayment(double amount)
-    {
-        System.out.println("using Bank Transfer" + " " + amount);
-    }
-}
-
-class PaymentProcessor
-{
-    public void pay(PaymentMethod paymentMethod, double amount)
-    {
-        paymentMethod.processPayment(amount);
-    }
-
-
-}
-
+import Payment.*;
 
 public class Main
 {
