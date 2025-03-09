@@ -10,9 +10,11 @@ abstract class AbstractPaymentMethod implements PaymentMethod
     }
     
     @Override
-    public void processPayment (double amount)
+    public void processPayment (double amount) throws InsufficientFundsException
     {
-        System.out.println("Processing payment of $" + amount + "for" + accountHolder);
+            if (amount == 0)
+            throw new InsufficientFundsException("Insufficient Funds Error");
+            System.out.println("Processing payment of $" + amount + "for" + accountHolder);    
     }
 }
 
