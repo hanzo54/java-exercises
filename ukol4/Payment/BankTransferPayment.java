@@ -1,9 +1,16 @@
 package Payment;
 
-public class BankTransferPayment implements PaymentMethod
+public class BankTransferPayment extends AbstractPaymentMethod
 {
-    public void processPayment(double amount)
+    
+    
+    public BankTransferPayment(String accountHolder)
+        {
+            super(accountHolder);
+        }
+    
+        public void processPayment(double amount)
     {
-        System.out.println("using Bank Transfer" + " " + amount);
+        System.out.println("Processing payment of $" + amount + " for " + accountHolder);
     }
 }

@@ -4,22 +4,28 @@ public class Main
 {
     public static void main (String []args)
     {
-        PaymentMethod creditCard = new CreditCardPayment();
+        CreditCardPayment creditCard = new CreditCardPayment("Pepa");
         
-        PaymentMethod payPal = new PayPalPayment();
+        PayPalPayment payPal = new PayPalPayment("Venda");
         
-        PaymentMethod bankTransfer = new BankTransferPayment ();
+        BankTransferPayment bankTransfer = new BankTransferPayment ("Karlos");
 
         PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-        System.out.print("platba" + " ");
+        
         paymentProcessor.pay(creditCard, 12.34);
-        
-        System.out.print("platba" + " ");
         paymentProcessor.pay(payPal, 32.34);
-        
-        System.out.print("platba" + " ");
         paymentProcessor.pay(bankTransfer, 22.34);
-    }
-    
+        try
+        {
+            paymentProcessor.pay(bankTransfer,0);
+            if (amount == 0)
+            throw new InsufficientFundsException("Insufficient Funds Error");
+
+        }
+        catch (InsufficientFundsException e)
+        {
+            System.out.println("x");
+        }
+    }  
 }

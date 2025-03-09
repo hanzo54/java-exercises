@@ -1,9 +1,14 @@
 package Payment;
 
-public class CreditCardPayment implements PaymentMethod
+public class CreditCardPayment extends AbstractPaymentMethod
 {
-    public void processPayment(double amount)
+    public CreditCardPayment(String accountHolder) 
+        {
+            super(accountHolder);
+        }
+    
+        public void processPayment(double amount)
     {
-        System.out.println("using Credit Card" + amount);
+        System.out.println("Processing payment of $" + amount + " for " + accountHolder);
     }
 }
