@@ -6,9 +6,4 @@ public class PayPalPayment extends AbstractPaymentMethod
         {
             super(accountHolder);
         }
-    
-        public void processPayment(double amount)
-    {
-        System.out.println("Processing payment of $" + amount + " for " + accountHolder);
-    }
 }

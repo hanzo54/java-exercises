@@ -2,7 +2,7 @@ import Payment.*;
 
 public class Main
 {
-    public static void main (String []args) throws InsufficientFundsException
+    public static void main (String []args)
     {
         CreditCardPayment creditCard = new CreditCardPayment("Pepa");
         
@@ -12,18 +12,8 @@ public class Main
 
         PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-        
         paymentProcessor.pay(creditCard, 12.34);
         paymentProcessor.pay(payPal, 32.34);
-        paymentProcessor.pay(bankTransfer, 0.0);
-        try
-        {
-            throw new InsufficientFundsException("Insufficient Funds Error");
-
-        }
-        catch (InsufficientFundsException e)
-        {
-            System.out.println("x");
-        }
+        paymentProcessor.pay(bankTransfer, 0);
     }  
 }
