@@ -4,16 +4,20 @@ public class Main
 {
     public static void main (String []args)
     {
-        CreditCardPayment creditCard = new CreditCardPayment("Pepa");
-        
-        PayPalPayment payPal = new PayPalPayment("Venda");
-        
-        BankTransferPayment bankTransfer = new BankTransferPayment ("Karlos");
+        PaymentMethod creditCardPayment = PaymentFactory.getPaymentMethod("creditcard", "Karlos");
+        PaymentMethod payPalPayment = PaymentFactory.getPaymentMethod("payPal", "Venda");
+        PaymentMethod bankTransferPayment = PaymentFactory.getPaymentMethod("bank", "Pepa");
 
         PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-        paymentProcessor.pay(creditCard, 12.34);
-        paymentProcessor.pay(payPal, 32.34);
-        paymentProcessor.pay(bankTransfer, 0);
+        paymentProcessor.pay(creditCardPayment, 100);
+        paymentProcessor.pay(payPalPayment, 0.34);
+        paymentProcessor.pay(bankTransferPayment, 0);
+        
+        NoDiscount noDiscount = new NoDiscount();
+        noDiscount.applyDiscount(0);
+
+        PercentageDiscount percentageDiscount = new PercentageDiscount(30);
+        percentageDiscount.applyDiscount(30);
     }  
 }
