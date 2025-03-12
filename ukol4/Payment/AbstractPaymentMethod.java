@@ -3,10 +3,12 @@ package Payment;
 abstract class AbstractPaymentMethod implements PaymentMethod
 {
     protected String accountHolder;
+    protected Currency currency;
     
-    public AbstractPaymentMethod (String accountHolder)
+    public AbstractPaymentMethod (String accountHolder, Currency currency)
     {
         this.accountHolder = accountHolder;
+        this.currency = currency;
     }
     
     @Override
@@ -17,5 +19,10 @@ abstract class AbstractPaymentMethod implements PaymentMethod
                 throw new InsufficientFundsException("Insufficient Funds Error");    
             }
             System.out.println("Processing payment of $ " + amount + " for " + accountHolder);
+    }
+
+    public Currency getCurrency()
+    {
+        return this.currency;
     }
 }
