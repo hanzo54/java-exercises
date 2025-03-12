@@ -3,12 +3,15 @@ package Payment;
 abstract class AbstractPaymentMethod implements PaymentMethod
 {
     protected String accountHolder;
-    protected Currency currency;
+    protected Currency fromCurrency;
+    protected Currency toCurrency;
+
     
-    public AbstractPaymentMethod (String accountHolder, Currency currency)
+    public AbstractPaymentMethod (String accountHolder, Currency fromCurrency, Currency toCurrency)
     {
         this.accountHolder = accountHolder;
-        this.currency = currency;
+        this.fromCurrency = fromCurrency;
+        this.toCurrency = toCurrency;
     }
     
     @Override
@@ -18,11 +21,9 @@ abstract class AbstractPaymentMethod implements PaymentMethod
             {            
                 throw new InsufficientFundsException("Insufficient Funds Error");    
             }
-            System.out.println("Processing payment of " + (this.currency.toString()) + " " + amount + " for " + accountHolder);
-    }
+            
+            double finalAmount = Currency.convert(amount, fromCurrency, toCurrency);
 
-    public Currency getCurrency()
-    {
-        return this.currency;
+            System.out.println("Processing payment from " + fromCurrency + " to " + toCurrency + " of " + finalAmount + "for" + accountHolder);
     }
 }

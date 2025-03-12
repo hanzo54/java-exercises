@@ -25,6 +25,14 @@ public enum Currency
         {
             return amount * 1.3;
         }
+        else if (from == GBP && to == EUR)
+        {
+            return amount * 1.9;
+        }
+        else if (from == EUR && to == USD)
+        {
+            return amount * 30;
+        }
         return amount;
     }
     

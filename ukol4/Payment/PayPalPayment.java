@@ -2,9 +2,9 @@ package Payment;
 
 public class PayPalPayment extends AbstractPaymentMethod
 {
-    public PayPalPayment(String accountHolder, Currency currency)
+    public PayPalPayment(String accountHolder, Currency fromCurrency, Currency toCurrency)
         {
-            super(accountHolder, currency);
+            super(accountHolder, fromCurrency, toCurrency);
         }
 
 }
