@@ -8,26 +8,16 @@ public class Main
         PaymentMethod payPalPayment = PaymentFactory.getPaymentMethod("payPal", "Venda");
         PaymentMethod bankTransferPayment = PaymentFactory.getPaymentMethod("bank", "Pepa");
 
-        PaymentProcessor paymentProcessor = new PaymentProcessor();
+        DiscountStrategy noDiscount = new NoDiscount();
+        DiscountStrategy percentageDiscount = new PercentageDiscount(30);
 
-        NoDiscount noDiscount = new NoDiscount();
-        noDiscount.applyDiscount(0);
-
-        PercentageDiscount percentageDiscount = new PercentageDiscount(30);
-        percentageDiscount.applyDiscount(30);
-
-        paymentProcessor.pay(creditCardPayment, 100);
-        if (percentageDiscount < 0)
-        {
-            System.out.println(percentageDiscount);
-        }
-        else
-        {
-            System.out.println(noDiscount);
-        }
+        PaymentProcessor paymentProcessorNoDiscount = new PaymentProcessor(noDiscount);
+        PaymentProcessor paymentProcessorDiscount = new PaymentProcessor(percentageDiscount);
         
-        paymentProcessor.pay(payPalPayment, 0.34);
+        paymentProcessorDiscount.pay(creditCardPayment, 100);
         
-        paymentProcessor.pay(bankTransferPayment, 0);
+        paymentProcessorNoDiscount.pay(payPalPayment, 0.34);
+        
+        paymentProcessorNoDiscount.pay(bankTransferPayment, 0);
     }  
 }
