@@ -18,7 +18,7 @@ abstract class AbstractPaymentMethod implements PaymentMethod
             {            
                 throw new InsufficientFundsException("Insufficient Funds Error");    
             }
-            System.out.println("Processing payment of $ " + amount + " for " + accountHolder);
+            System.out.println("Processing payment of" + (USD) + amount + " for " + accountHolder);
     }
 
     public Currency getCurrency()

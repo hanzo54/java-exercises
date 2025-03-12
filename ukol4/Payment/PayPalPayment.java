@@ -6,4 +6,5 @@ public class PayPalPayment extends AbstractPaymentMethod
         {
             super(accountHolder, currency);
         }
+
 }

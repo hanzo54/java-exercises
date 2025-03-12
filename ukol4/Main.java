@@ -4,9 +4,15 @@ public class Main
 {
     public static void main (String []args)
     {
-        PaymentMethod creditCardPayment = PaymentFactory.getPaymentMethod("creditcard", "Karlos", Currency.EUR);
-        PaymentMethod payPalPayment = PaymentFactory.getPaymentMethod("payPal","Venda", Currency.USD);
-        PaymentMethod bankTransferPayment = PaymentFactory.getPaymentMethod("bank", "Pepa", Currency.GBP );
+        Currency usd = Currency.USD;
+        Currency eur = Currency.EUR;
+        Currency gbp = Currency.GBP;
+
+
+
+        PaymentMethod creditCardPayment = PaymentFactory.getPaymentMethod("creditcard", "Karlos", eur);
+        PaymentMethod payPalPayment = PaymentFactory.getPaymentMethod("payPal","Venda", usd);
+        PaymentMethod bankTransferPayment = PaymentFactory.getPaymentMethod("bank", "Pepa", gbp);
 
         DiscountStrategy noDiscount = new NoDiscount();
         DiscountStrategy percentageDiscount = new PercentageDiscount(0);
