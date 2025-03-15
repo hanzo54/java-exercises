@@ -23,6 +23,7 @@ public abstract class Vehicle implements Rentable
         }
         else
         {
+            rented = true;
             return false;
         }
     }

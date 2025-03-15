@@ -12,6 +12,6 @@ public class Main
     
         rentalService.rentVehicle(car, 14);
         rentalService.rentVehicle(bike, 7);
-        rentalService.rentVehicle(bike, 8);
+        rentalService.rentVehicle(bike, 7);
     }
 }
