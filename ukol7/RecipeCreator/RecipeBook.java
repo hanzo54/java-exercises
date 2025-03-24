@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class RecipeBook
 {
-    protected ArrayList<Dish> dishes;
+    protected ArrayList<Dish> dishes = new ArrayList<>();
+    
+    
     
     public void addDish(Dish dish)
     {
@@ -13,18 +15,25 @@ public class RecipeBook
 
     public void listDishes()
     {
-        System.out.println(dishes);
+        for(Dish dish : dishes)
+        {
+            System.out.println(dish.name + " " + dish.mealType);
+        }
     }
 
     public void findHealthiestDish()
     {
+        Dish healthiestDish = dishes.get(0);
+        
         for (Dish dish : dishes)
         {
-            if(dish.calories < findHealthiestDish.calories)
+            if(healthiestDish.calculateTotalNutrition().get("Kcal") > dish.calculateTotalNutrition().get("Kcal"))  //method chaining
             {
-                findHealthiestDish = dish;
+                healthiestDish = dish;
             }
         }
+
+        System.out.println(healthiestDish.name);
         
     }
 
