@@ -16,7 +16,7 @@ public class Main
         RecipeBook recipeBook = new RecipeBook();
         recipeBook.addDish(salad);
 
-        recipeBook.listDishes();
+        recipeBook.listDishes("dinner");
 
         recipeBook.findHealthiestDish();
 

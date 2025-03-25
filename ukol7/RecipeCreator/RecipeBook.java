@@ -13,11 +13,14 @@ public class RecipeBook
         dishes.add(dish);
     }
 
-    public void listDishes()
+    public void listDishes(String mealType)
     {
         for(Dish dish : dishes)
         {
-            System.out.println(dish.name + " " + dish.mealType);
+            if (mealType == null || dish.mealType.equalsIgnoreCase(mealType))
+            {
+                System.out.println(dish.name + " " + dish.mealType);   
+            }
         }
     }
 
