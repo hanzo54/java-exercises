@@ -4,9 +4,9 @@ public class Main
 {
     public static void main (String[]args)
     {
-        Ingredient chicken = new Ingredient("Chicken", 165, 0, 31, 3.6);
-        Ingredient lettuce = new Ingredient("Lettuce", 8, 1.3, 0, 0.1);
-        Ingredient oliveOil = new Ingredient("Olive oil", 88, 0, 0, 10);
+        Ingredient chicken = new Ingredient("Chicken", 165, 0, 31, 3.6, false, true, true);
+        Ingredient lettuce = new Ingredient("Lettuce", 8, 1.3, 0, 0.1, true, false, false);
+        Ingredient oliveOil = new Ingredient("Olive oil", 88, 0, 0, 10, true, false, false);
 
         Dish salad = new Dish("Salad",30, "Easy", "Lunch");
         salad.addIngredient(chicken, 150);

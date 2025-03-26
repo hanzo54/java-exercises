@@ -40,4 +40,14 @@ public class RecipeBook
         
     }
 
+    public ArrayList<Dish> suggestMeals(User user)
+    {
+        for (Dish dish : dishes)
+        if()
+        {
+            System.out.println();
+        }
+    }
+
+
 }
